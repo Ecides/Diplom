@@ -1,0 +1,74 @@
+nav {
+    background-color: rgb(44, 43, 43);
+    padding: 10px;
+    color: white;
+}
+
+nav .flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    max-height: 50px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+nav .container {
+    margin-right: 10px;
+    background-color: rgb(70, 70, 70);
+    border-radius: 10px;
+    text-shadow: 2px 2px 3px black;
+}
+
+nav .container ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+nav .container ul li {
+    padding: 15px;
+    transition: transform 0.2s ease;
+}
+
+nav .container ul li:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+nav .container ul li:last-child {
+    margin-left: 20px;
+}
+
+
+/*Dropdown*/
+.dropdown-trigger {
+  position: relative;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #333;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+}
+
+.dropdown div {
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.dropdown div:hover {
+  background: #555;
+}
