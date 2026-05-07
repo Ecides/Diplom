@@ -14,7 +14,7 @@ nav .flex-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
+    padding: 10px 10px 10px 10px;
     max-height: 50px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-style: normal;
@@ -23,12 +23,11 @@ nav .flex-container {
 }
 
 nav .container {
-    margin-right: 10px;
-    background-color: rgb(70, 70, 70);
     border-radius: 10px;
     text-shadow: 2px 2px 3px black;
     min-width: 40%;
     padding: 5px 8px 5px 8px;
+    height: 100%;
 }
 
 nav .container ul {
@@ -57,4 +56,7 @@ nav .container ul li:hover {
 
 nav .container ul li:last-child {
     margin-left: 70px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

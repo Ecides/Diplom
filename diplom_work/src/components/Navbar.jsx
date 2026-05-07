@@ -4,8 +4,8 @@ import "../styles/navBar.css";
 
 function Navbar({ user }) {
   const items = ["Home", "Catalog", "About"];
-  
-  const [isAuthOpen, setIsAuthOpen] = useState(false); 
+
+  const [isAuthOpen, setIsAuthOpen] = useState(false);
 
   return (
     <nav>
@@ -16,10 +16,13 @@ function Navbar({ user }) {
             {items.map((item) => (
               <li key={item}>{item}</li>
             ))}
-            
-            <li onClick={() => setIsAuthOpen(!isAuthOpen)}> {user ? user.name : "Login"}</li>
+
+            <li onClick={() => setIsAuthOpen(!isAuthOpen)}> {user ? user.displayName : "Login"}
+            </li>
           </ul>
-          {isAuthOpen && (<AuthModule user={user} />)}
+          {isAuthOpen && (
+            <AuthModule user={user} closeMenu={() => setIsAuthOpen(false)} />
+          )}
         </div>
       </div>
     </nav>

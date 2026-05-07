@@ -1,6 +1,6 @@
 .dropdown {
   position: absolute;
-  top: 100%; /* Отступ вниз от кнопки навигации */
+  top: 100%;
   right: 0;
   background: #242424; 
   color: #ffffff;
@@ -107,4 +107,84 @@
 
 .google-btn:hover {
   background-color: #f1f1f1;
+}
+
+
+.password-wrapper {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 40px; /* Оставляем место справа, чтобы текст не залезал на глаз */
+}
+
+/* Сбрасываем стили обычных кнопок для иконки глаза */
+.toggle-password-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  cursor: pointer;
+  font-size: 16px;
+  color: #aaa;
+  width: 24px;
+  height: 24px;
+}
+
+.toggle-password-btn:hover {
+  transform: translateY(-50%) scale(1.1); /* Легкое увеличение при наведении */
+}
+
+.profile {
+  background-color: #333;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #b3b3b3;
+  text-align: center;
+  font-style: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.flex-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  justify-content: center;
+  align-items: start;
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+
+.profile p {
+  font-size: 20px;
+}
+
+.logout-btn {
+  background-color: rgb(255, 77, 77);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  text-shadow: 2px 2px 3px black;
+}
+
+.logout-btn:hover {
+  background-color: rgba(255, 77, 77, 0.8);
+  transform: scale(1.05);
+}
+
+.logout-btn:active {
+  transform: scale(0.95);
 }
