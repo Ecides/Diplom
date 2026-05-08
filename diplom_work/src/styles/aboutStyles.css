@@ -1,0 +1,129 @@
+/* =========================================
+   Общий контейнер страницы
+   ========================================= */
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  color: #ffffff;
+  background-color: #1a1a1a;
+  min-height: calc(100vh - 70px);
+}
+
+/* =========================================
+   Заголовок (Hero)
+   ========================================= */
+.about-hero {
+  text-align: center;
+  max-width: 800px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #ffffff, #4caf50);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-subtitle {
+  font-size: 1.1rem;
+  color: #aaaaaa;
+  line-height: 1.6;
+}
+
+/* =========================================
+   Блоки с контентом (Карточки)
+   ========================================= */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Расстояние между блоками */
+  max-width: 800px;
+  width: 100%;
+}
+
+.about-card {
+  background-color: #242424;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 30px;
+  transition: all 0.3s ease;
+  animation: fadeIn 1s ease-out;
+}
+
+/* Эффект выезжания карточки при наведении */
+.about-card:hover {
+  transform: translateX(10px); /* Сдвигаем карточку чуть вправо */
+  border-left: 4px solid #4caf50; /* Добавляем зеленую полоску слева */
+  background-color: #2a2a2a;
+}
+
+.about-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #eeeeee;
+}
+
+.about-card p {
+  color: #aaa;
+  line-height: 1.6;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+/* =========================================
+   Список технологий
+   ========================================= */
+.tech-list {
+  list-style: none; /* Убираем стандартные точки списка */
+  padding: 0;
+  margin-top: 20px;
+}
+
+.tech-list li {
+  background-color: #1a1a1a;
+  margin-bottom: 12px;
+  padding: 15px;
+  border-radius: 8px;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid #333;
+}
+
+.tech-icon {
+  font-size: 1.5rem;
+}
+
+.tech-list b {
+  color: #ffffff;
+}
+
+/* =========================================
+   Анимация появления при загрузке
+   ========================================= */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   Адаптивность для мобилок
+   ========================================= */
+@media screen and (max-width: 768px) {
+  .about-card {
+    padding: 20px;
+  }
+  
+  .tech-list li {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}

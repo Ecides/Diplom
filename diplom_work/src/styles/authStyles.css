@@ -8,7 +8,7 @@
   border: 1px solid #3d3d3d; 
   padding: 20px;
   min-width: 260px;
-  z-index: 1000;
+  z-index: 1005;
   
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
   animation: fadeInDown 0.3s ease-out forwards;
@@ -70,7 +70,7 @@
 }
 
 .auth-form button:active {
-  transform: scale(0.97);
+  transform: scale(0.95);
 }
 
 .auth-form button[type="submit"] {

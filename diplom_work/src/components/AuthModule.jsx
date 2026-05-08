@@ -12,6 +12,9 @@ import { auth, db, googleProvider } from "../firebase.js";
 
 import "../styles/authStyles.css";
 
+import eyeopen from "../assets/eyeopen.svg";
+import eyeclose from "../assets/eyeclose.svg";
+
 // Component
 function AuthModule({ user, closeMenu }) {
   const [name, setName] = useState("");
@@ -121,8 +124,10 @@ function AuthModule({ user, closeMenu }) {
           <div className="profile">
             Profile
             <div className="flex-profile">
-              <p>Email: {user.email}</p>
-              <p>Password: {user.password || "••••••••"}</p>
+              <p>Email: </p>
+              <p>{user.email}</p>
+              <p>Password: </p>
+              <p>{user.password || "••••••••"}</p>
             </div>
           </div>
           <div className="logout-btn" onClick={handleLogout}>
@@ -170,7 +175,7 @@ function AuthModule({ user, closeMenu }) {
               className="toggle-password-btn"
               onClick={() => setShowPassword(!showPassword)}
             >
-              {showPassword ? "N" : "Y"}
+              {showPassword ? <img style={{width: "24px", height: "24px"}} src={eyeclose} alt="Hide password" /> : <img style={{width: "24px", height: "24px"}} src={eyeopen} alt="Show password" />}
             </button>
           </div>
 

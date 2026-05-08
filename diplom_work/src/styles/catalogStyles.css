@@ -1,0 +1,134 @@
+/* =========================================
+   Общий контейнер каталога
+   ========================================= */
+.catalog-container {
+  padding: 40px 20px;
+  background-color: #1a1a1a;
+  min-height: calc(100vh - 70px);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.catalog-header {
+  text-align: center;
+  margin-bottom: 40px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.catalog-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.catalog-header p {
+  color: #aaaaaa;
+  font-size: 1.1rem;
+}
+
+/* =========================================
+   Сетка товаров (Grid)
+   ========================================= */
+.products-grid {
+  display: grid;
+  /* Магия Grid: карточки будут не меньше 250px. Если место есть - они растянутся, если нет - перенесутся */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+  width: 100%;
+  max-width: 1200px; /* Ограничиваем максимальную ширину сетки */
+}
+
+/* =========================================
+   Карточка товара
+   ========================================= */
+.product-card {
+  background-color: #242424;
+  border: 1px solid #333;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  border-color: #4caf50;
+}
+
+/* Заглушка для картинки */
+.product-image-placeholder {
+  height: 180px;
+  background-color: #2a2a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  border-bottom: 1px solid #333;
+}
+
+.product-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Чтобы кнопки всегда были прижаты к низу, если названия разной длины */
+}
+
+.product-title {
+  font-size: 1.2rem;
+  margin: 0 0 5px 0;
+  color: #eeeeee;
+}
+
+.product-category {
+  font-size: 0.9rem;
+  color: #888888;
+  margin: 0 0 20px 0;
+}
+
+.product-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto; /* Прижимает этот блок к самому низу карточки */
+}
+
+.product-price {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #4caf50;
+}
+
+.track-btn {
+  background-color: transparent;
+  color: #4caf50;
+  border: 1px solid #4caf50;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.track-btn:hover {
+  background-color: #4caf50;
+  color: #ffffff;
+}
+
+/* =========================================
+   Адаптивность (Телефоны)
+   ========================================= */
+@media screen and (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr; /* На очень узких экранах делаем 1 колонку */
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
