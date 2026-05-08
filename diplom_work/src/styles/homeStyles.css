@@ -8,7 +8,7 @@
   padding: 40px 20px;
   color: #ffffff;
   /* Мягкий темный фон, подходящий под Navbar */
-  background-color: #1a1a1a; 
+  background-color: #1a1a1a;
   min-height: calc(100vh - 70px); /* Занимает всю высоту за вычетом навигации */
   animation: fadeIn 0.8s ease-out;
 }
@@ -27,6 +27,7 @@
   font-size: 3rem;
   margin-bottom: 20px;
   background: linear-gradient(90deg, #ffffff, #4caf50);
+  padding: 10px;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -103,6 +104,12 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -12,7 +12,7 @@ import "modern-normalize/modern-normalize.css";
 import './styles.css';
 
 // Firebase
-import { auth } from './firebase.js'; 
+import { auth } from './firebase.js';
 import { onAuthStateChanged } from 'firebase/auth';
 
 

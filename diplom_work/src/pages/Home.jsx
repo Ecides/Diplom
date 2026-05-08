@@ -1,42 +1,49 @@
 import { Link } from "react-router-dom";
 import "../styles/homeStyles.css";
 
+import DBSeeder from "../components/DBSeeder.jsx";
+
 function Home() {
   return (
     <div className="home-container">
-      {/* Главный блок (Hero Section) */}
       <section className="hero-section">
-        <h1 className="hero-title">Добро пожаловать в TrackingCatalog</h1>
+        <h1 className="hero-title">Welcome to TrackingCatalog</h1>
         <p className="hero-subtitle">
-          Ваш личный помощник для отслеживания товаров, управления списками покупок и мониторинга цен. 
-          Всё в одном удобном месте.
+          Your personal assistant for tracking products, managing shopping lists
+          and monitoring prices. Everything in one convenient place.
         </p>
-        {/* Кнопка-ссылка, которая перекинет пользователя в каталог */}
         <Link to="/catalog" className="hero-btn">
-          Перейти к каталогу
+          Go to Catalog
         </Link>
       </section>
 
-      {/* Блок с описанием преимуществ (Features) */}
       <section className="features-section">
         <div className="feature-card">
           <div className="feature-icon">📦</div>
-          <h3>Единая база</h3>
-          <p>Сохраняйте ноутбуки, телефоны и другие товары в свою личную коллекцию.</p>
+          <h3>Single database</h3>
+          <p>
+            Save laptops, phones and other products in your personal collection.
+          </p>
         </div>
 
         <div className="feature-card">
           <div className="feature-icon">⚡</div>
-          <h3>Быстрый доступ</h3>
-          <p>Мгновенный поиск и фильтрация благодаря современным облачным технологиям.</p>
+          <h3>Fast access</h3>
+          <p>
+            Instant search and filtering thanks to modern cloud technologies.
+          </p>
         </div>
 
         <div className="feature-card">
           <div className="feature-icon">☁️</div>
-          <h3>Облачная синхронизация</h3>
-          <p>Ваши данные надежно хранятся в Google Firebase и доступны с любого устройства.</p>
+          <h3>Cloud synchronization</h3>
+          <p>
+            Your data is securely stored in Google Firebase and accessible from
+            any device.
+          </p>
         </div>
       </section>
+      <DBSeeder />
     </div>
   );
 }
