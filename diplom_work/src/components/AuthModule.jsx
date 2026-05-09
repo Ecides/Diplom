@@ -1,5 +1,5 @@
+// Imports
 import { useState } from "react";
-
 import {
   createUserWithEmailAndPassword,
   signInWithPopup,
@@ -7,11 +7,11 @@ import {
   updateProfile,
   signOut,
 } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
+
+import { doc, setDoc, getDoc } from "firebase/firestore";
 import { auth, db, googleProvider } from "../firebase.js";
 
 import "../styles/authStyles.css";
-
 import eyeopen from "../assets/eyeopen.svg";
 import eyeclose from "../assets/eyeclose.svg";
 
@@ -27,7 +27,7 @@ function AuthModule({ user, closeMenu }) {
   const handleRegister = async () => {
     try {
       setError("");
-      console.log("Начинаем регистрацию...");
+      console.log("Begin registration...");
 
       const userCredential = await createUserWithEmailAndPassword(
         auth,
@@ -41,42 +41,42 @@ function AuthModule({ user, closeMenu }) {
       await setDoc(doc(db, "users", currentUser.uid), {
         name: name,
         email: currentUser.email,
+        favorites: [],
         role: "user",
         createdAt: new Date().toISOString(),
       });
 
-      console.log("Успех! Пользователь зарегистрирован и добавлен в базу.");
+      console.log("Success! User registered and added to the database.");
       closeMenu();
     } catch (err) {
-      console.error("Ошибка Firebase:", err);
-      setError("Ошибка регистрации: " + err.message);
+      console.error("Firebase error:", err);
+      setError("Registration error: " + err.message);
     }
   };
 
   const handleLogin = async (e) => {
-    e.preventDefault(); // Останавливаем перезагрузку страницы
+    e.preventDefault();
     try {
-      setError(""); // Очищаем красные ошибки от прошлых попыток
-      console.log("Пытаемся войти под:", email);
+      setError("");
+      console.log("Trying to log in as:", email);
 
-      // Firebase проверяет логин и пароль
       const userCredential = await signInWithEmailAndPassword(
         auth,
         email,
         password,
       );
 
-      console.log("Успешный вход! C возвращением,", userCredential.user.email);
+      console.log("Success! Welcome back,", userCredential.user.email);
 
       setEmail("");
       setPassword("");
     } catch (err) {
-      console.error("Ошибка входа:", err);
+      console.error("Login error:", err);
 
       if (err.code === "auth/invalid-credential") {
-        setError("Неверный email или пароль.");
+        setError("Invalid email or password.");
       } else {
-        setError("Ошибка: " + err.message);
+        setError("Error: " + err.message);
       }
     }
   };
@@ -85,35 +85,35 @@ function AuthModule({ user, closeMenu }) {
     try {
       setError("");
 
-      // Вызываем всплывающее окно Google
       const result = await signInWithPopup(auth, googleProvider);
       const currentUser = result.user;
 
-      // Сохраняем пользователя в базу (или обновляем, если он уже был)
-      await setDoc(
-        doc(db, "users", currentUser.uid),
-        {
+      const userRef = doc(db, "users", currentUser.uid);
+      const userSnap = await getDoc(userRef);
+
+      if (!userSnap.exists()) {
+        await setDoc(userRef, {
           email: currentUser.email,
           name: currentUser.displayName,
+          favorites: [],
           role: "user",
-          // merge: true крайне важен, чтобы не перезаписать старые данные при повторном входе
-        },
-        { merge: true },
-      );
+          createdAt: new Date().toISOString(),
+        });
+      }
 
-      console.log("Успешный вход через Google:", currentUser.displayName);
+      console.log("Success! Logged in with Google:", currentUser.displayName);
     } catch (err) {
       console.error(err);
-      setError("Ошибка Google авторизации: " + err.message);
+      setError("Google authentication error: " + err.message);
     }
   };
 
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      console.log("Успешно вышли из аккаунта");
+      console.log("Success! Logged out.");
     } catch (err) {
-      console.error("Ошибка при выходе:", err);
+      console.error("Error during logout:", err);
     }
   };
 
@@ -126,8 +126,8 @@ function AuthModule({ user, closeMenu }) {
             <div className="flex-profile">
               <p>Email: </p>
               <p>{user.email}</p>
-              <p>Password: </p>
-              <p>{user.password || "••••••••"}</p>
+              <p>Name: </p>
+              <p>{user.displayName}</p>
             </div>
           </div>
           <div className="logout-btn" onClick={handleLogout}>
@@ -179,10 +179,8 @@ function AuthModule({ user, closeMenu }) {
             </button>
           </div>
 
-          {/* Жмет сюда -> срабатывает onSubmit формы -> handleLogin */}
           <button type="submit">Sign In</button>
 
-          {/* 5. ДОБАВЛЕН onClick НА КНОПКУ РЕГИСТРАЦИИ */}
           <button type="button" onClick={handleRegister}>
             Register
           </button>

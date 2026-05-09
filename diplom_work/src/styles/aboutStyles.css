@@ -1,6 +1,3 @@
-/* =========================================
-   Общий контейнер страницы
-   ========================================= */
 .about-container {
   display: flex;
   flex-direction: column;
@@ -11,9 +8,6 @@
   min-height: calc(100vh - 70px);
 }
 
-/* =========================================
-   Заголовок (Hero)
-   ========================================= */
 .about-hero {
   text-align: center;
   max-width: 800px;
@@ -37,13 +31,10 @@
   line-height: 1.6;
 }
 
-/* =========================================
-   Блоки с контентом (Карточки)
-   ========================================= */
 .about-content {
   display: flex;
   flex-direction: column;
-  gap: 25px; /* Расстояние между блоками */
+  gap: 25px;
   max-width: 800px;
   width: 100%;
 }
@@ -57,10 +48,9 @@
   animation: fadeIn 1s ease-out;
 }
 
-/* Эффект выезжания карточки при наведении */
 .about-card:hover {
-  transform: translateX(10px); /* Сдвигаем карточку чуть вправо */
-  border-left: 4px solid #4caf50; /* Добавляем зеленую полоску слева */
+  transform: translateX(10px);
+  border-left: 4px solid #4caf50;
   background-color: #2a2a2a;
 }
 
@@ -77,11 +67,7 @@
   margin: 0;
 }
 
-/* =========================================
-   Список технологий
-   ========================================= */
 .tech-list {
-  list-style: none; /* Убираем стандартные точки списка */
   padding: 0;
   margin-top: 20px;
 }
@@ -106,22 +92,22 @@
   color: #ffffff;
 }
 
-/* =========================================
-   Анимация появления при загрузке
-   ========================================= */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* =========================================
-   Адаптивность для мобилок
-   ========================================= */
 @media screen and (max-width: 768px) {
   .about-card {
     padding: 20px;
   }
-  
+
   .tech-list li {
     flex-direction: column;
     text-align: center;

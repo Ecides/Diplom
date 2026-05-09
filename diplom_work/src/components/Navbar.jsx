@@ -1,40 +1,53 @@
+// Imports
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router";
 import AuthModule from "./AuthModule";
+import Favorites from "../pages/Favorites";
 import "../styles/navStyles.css";
-
 import favIcon from "../assets/fav.svg";
+import logo from "../assets/logo.svg";
 
+// Component
 function Navbar({ user }) {
   const items = ["Home", "Catalog", "About"];
+  let navigate = useNavigate();
 
   const [isAuthOpen, setIsAuthOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleFavoritesClick = () => {
     if (!user) {
-      alert("Пожалуйста, войдите в аккаунт, чтобы просматривать Избранное!");
+      alert("Sign in to manage favorites!");
     } else {
-      console.log("Пользователь авторизован, тут будет переход в избранное");
+      navigate("/favorites");
     }
   };
 
   return (
     <nav>
       <div className="flex-container">
-        <div className="logo">TrackingCatalog</div>
+        <div
+          className="logo"
+          style={{ cursor: "pointer" }}
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          {" "}
+          <img src={logo} alt="Logo" /> <p>TrackingCatalog</p>{" "}
+        </div>
 
         <div className="mobile-controls">
-          <img 
+          <img
             src={favIcon}
-            alt="Избранное" 
+            alt="Favorites"
             className="block-fav"
-            onClick={handleFavoritesClick} 
+            onClick={handleFavoritesClick}
           />
-          
-          <div 
-            className="burger-icon" 
+
+          <div
+            className={`burger-icon ${isMobileMenuOpen ? "active" : ""}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             <span></span>
@@ -53,13 +66,21 @@ function Navbar({ user }) {
               </li>
             ))}
 
-            <li className="list-fav" style={{backgroundColor: "transparent"}}
+            <li
+              className="list-fav"
+              style={{
+                backgroundColor: "transparent",
+                width: "50px",
+                height: "50px",
+                padding: "5px",
+                flexShrink: 0,
+              }}
               onClick={handleFavoritesClick}
             >
               <img
                 src={favIcon}
                 alt="Favorites"
-                style={{ width: "40px", height: "40px" }}
+                style={{ width: "100%", height: "100%", objectFit: "contain" }}
               />
             </li>
 

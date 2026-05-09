@@ -1,5 +1,7 @@
+// Styles
 import "../styles/aboutStyles.css";
 
+// Component
 function About() {
   return (
     <div className="about-container">
@@ -22,7 +24,7 @@ function About() {
         </div>
 
         <div className="about-card">
-          <h2>💻 Technologies that was used</h2>
+          <h2>Technologies that was used</h2>
           <p>The project is built on the foundation of modern client-server web technologies:</p>
           <ul className="tech-list">
             <li>

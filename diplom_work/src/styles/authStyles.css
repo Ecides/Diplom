@@ -2,46 +2,33 @@
   position: absolute;
   top: 100%;
   right: 0;
-  background: #242424; 
+  background: #242424;
   color: #ffffff;
-  border-radius: 12px; 
-  border: 1px solid #3d3d3d; 
+  border-radius: 12px;
+  border: 1px solid #3d3d3d;
   padding: 20px;
   min-width: 260px;
   z-index: 1005;
-  
+
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
   animation: fadeInDown 0.3s ease-out forwards;
-  
+
   font-family: Arial, sans-serif;
   font-weight: normal;
-  text-shadow: none; 
+  text-shadow: none;
 }
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 
 .auth-form {
   display: flex;
   flex-direction: column;
-  gap: 12px; 
+  gap: 12px;
 }
-
 
 .auth-form input {
   padding: 10px 12px;
   border-radius: 8px;
-  border: 1px solid #444; 
-  background-color: #333; 
+  border: 1px solid #444;
+  background-color: #333;
   color: white;
   outline: none;
   font-size: 14px;
@@ -57,7 +44,6 @@
   background-color: #3a3a3a;
   box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
 }
-
 
 .auth-form button {
   padding: 10px;
@@ -109,7 +95,6 @@
   background-color: #f1f1f1;
 }
 
-
 .password-wrapper {
   position: relative;
   display: flex;
@@ -118,19 +103,16 @@
 
 .password-wrapper input {
   width: 100%;
-  padding-right: 40px; /* Оставляем место справа, чтобы текст не залезал на глаз */
+  padding-right: 40px;
 }
 
-/* Сбрасываем стили обычных кнопок для иконки глаза */
 .toggle-password-btn {
   position: absolute;
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
-  background: none !important;
-  border: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
+  background: none;
+  border: none;
   cursor: pointer;
   font-size: 16px;
   color: #aaa;
@@ -139,7 +121,7 @@
 }
 
 .toggle-password-btn:hover {
-  transform: translateY(-50%) scale(1.1); /* Легкое увеличение при наведении */
+  transform: translateY(-50%) scale(1.1);
 }
 
 .profile {
@@ -164,7 +146,6 @@
   font-weight: normal;
 }
 
-
 .profile p {
   font-size: 20px;
 }
@@ -187,4 +168,15 @@
 
 .logout-btn:active {
   transform: scale(0.95);
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

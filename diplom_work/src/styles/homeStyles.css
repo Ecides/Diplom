@@ -1,21 +1,14 @@
-/* =========================================
-   Общий контейнер страницы
-   ========================================= */
 .home-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 40px 20px;
   color: #ffffff;
-  /* Мягкий темный фон, подходящий под Navbar */
   background-color: #1a1a1a;
-  min-height: calc(100vh - 70px); /* Занимает всю высоту за вычетом навигации */
+  min-height: calc(100vh - 70px);
   animation: fadeIn 0.8s ease-out;
 }
 
-/* =========================================
-   Главный блок (Hero)
-   ========================================= */
 .hero-section {
   text-align: center;
   max-width: 800px;
@@ -58,15 +51,12 @@
   box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
 }
 
-/* =========================================
-   Карточки преимуществ (Features)
-   ========================================= */
 .features-section {
   display: flex;
   gap: 30px;
   max-width: 1000px;
   width: 100%;
-  flex-wrap: wrap; /* Чтобы на телефонах карточки переносились на новую строку */
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -86,9 +76,9 @@
   border-color: #4caf50;
 }
 
-.feature-icon {
-  font-size: 3rem;
-  margin-bottom: 15px;
+.feature-icon img {
+  width: 30%;
+  height: 30%;
 }
 
 .feature-card h3 {
