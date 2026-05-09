@@ -268,12 +268,6 @@
   }
 }
 
-@media screen and (max-width: 480px) {
-  .products-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -284,3 +278,17 @@
     transform: translateY(0);
   }
 }
+
+@media screen and (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .catalog-header h1 {
+    font-size: 2rem;
+  }
+}
+
+

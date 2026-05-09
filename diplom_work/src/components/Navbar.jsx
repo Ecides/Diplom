@@ -1,5 +1,5 @@
 // Imports
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
 import AuthModule from "./AuthModule";
@@ -11,10 +11,12 @@ import logo from "../assets/logo.svg";
 // Component
 function Navbar({ user }) {
   const items = ["Home", "Catalog", "About"];
+  const logoItems = ["TrackingCatalog", "TR"]
   let navigate = useNavigate();
 
   const [isAuthOpen, setIsAuthOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 400);
 
   const handleFavoritesClick = () => {
     if (!user) {
@@ -23,6 +25,16 @@ function Navbar({ user }) {
       navigate("/favorites");
     }
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 400);
+    };
+
+    window.addEventListener('resize', handleResize);
+    
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <nav>
@@ -35,7 +47,7 @@ function Navbar({ user }) {
           }}
         >
           {" "}
-          <img src={logo} alt="Logo" /> <p>TrackingCatalog</p>{" "}
+          <img src={logo} alt="Logo" /> <p>{isMobile ? logoItems[1] : logoItems[0]}</p>{" "}
         </div>
 
         <div className="mobile-controls">

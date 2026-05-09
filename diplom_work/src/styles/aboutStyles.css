@@ -114,3 +114,9 @@
     gap: 10px;
   }
 }
+
+@media screen and (max-width: 400px) {
+  .about-title {
+    font-size: 2.3rem;
+  }
+}

@@ -8,7 +8,7 @@ function About() {
       <section className="about-hero">
         <h1 className="about-title">About TrackingCatalog</h1>
         <p className="about-subtitle">
-          TrackingCatalog — this is a modern web application for managing your collection of favorite products and convenient tracking.
+          TrackingCatalog — modern web application for managing your collection of favorite products and convenient tracking.
         </p>
       </section>
 
