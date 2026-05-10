@@ -248,6 +248,45 @@
   border: 1px solid #444;
 }
 
+.leaflet-routing-alt table {
+  display: none !important;
+}
+
+.leaflet-routing-container .leaflet-routing-geocoders {
+  display: none !important;
+}
+
+.leaflet-routing-container {
+  background-color: #242424 !important;
+  color: #ffffff !important;
+  border: 1px solid #444 !important;
+  border-radius: 8px !important;
+  padding: 12px 15px !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5) !important;
+  background-image: none !important;
+}
+
+.leaflet-routing-alt h2 {
+  font-size: 1rem !important;
+  color: #eeeeee !important;
+  margin: 0 0 5px 0 !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.leaflet-routing-alt h3 {
+  font-size: 1.1rem !important;
+  color: #4caf50 !important;
+  margin: 0 !important;
+  font-weight: bold;
+}
+
+.leaflet-routing-alt:not(:first-child) {
+  display: none !important;
+}
+
 @keyframes fadeInModal {
   from {
     opacity: 0;
