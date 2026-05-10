@@ -83,7 +83,6 @@
   background-color: rgba(255, 77, 77, 0.1);
 }
 
-/* Адаптивность для телефонов: сайдбар уходит наверх */
 @media screen and (max-width: 768px) {
   .catalog-content {
     flex-direction: column !important;

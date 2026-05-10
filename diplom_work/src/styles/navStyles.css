@@ -101,20 +101,20 @@ nav .container ul li:last-child {
 
 @media screen and (max-width: 1000px) {
   nav .container ul {
-  gap: 15px;
-}
+    gap: 15px;
+  }
 
-nav .container ul li:last-child {
-  padding: 8px 16px;
-}
+  nav .container ul li:last-child {
+    padding: 8px 16px;
+  }
 
-nav a {
-  padding: 8px 16px;
-}
+  nav a {
+    padding: 8px 16px;
+  }
 
-.logo {
-  margin-right: 0px;
-}
+  .logo {
+    margin-right: 0px;
+  }
 }
 
 @media screen and (max-width: 768px) {

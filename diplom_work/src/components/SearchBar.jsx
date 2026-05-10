@@ -1,10 +1,11 @@
+// Imports
 import "../styles/searchStyles.css";
-import x from "../assets/x.svg"
+import x from "../assets/x.svg";
 
+// Component
 function SearchBar({ searchQuery, onSearchChange, onClear }) {
   return (
     <div className="search-bar-container">
-      {/* Иконка лупы (SVG) */}
       <svg
         className="search-icon"
         xmlns="http://www.w3.org/2000/svg"
@@ -28,14 +29,13 @@ function SearchBar({ searchQuery, onSearchChange, onClear }) {
         onChange={(e) => onSearchChange(e.target.value)}
       />
 
-      {/* Кнопка очистки появляется только если в поле есть текст */}
       {searchQuery.length > 0 && (
         <button
           className="clear-search-btn"
           onClick={onClear}
           title="Clear search"
         >
-        <img src={x} alt="X" />
+          <img src={x} alt="X" />
         </button>
       )}
     </div>

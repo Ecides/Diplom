@@ -81,7 +81,6 @@ function Catalog({ user }) {
   }, [products]);
 
   const warehouses = useMemo(() => {
-    // Берем warehouseName, убираем пустые/undefined, и оставляем только уникальные
     return [
       ...new Set(
         products.map((p) => p.location?.warehouseName).filter(Boolean),
@@ -94,25 +93,23 @@ function Catalog({ user }) {
 
     if (filters.searchQuery.trim() !== "") {
       const query = filters.searchQuery.toLowerCase();
-      result = result.filter(p => 
-        p.name.toLowerCase().includes(query) || 
-        p.category.toLowerCase().includes(query)
+      result = result.filter(
+        (p) =>
+          p.name.toLowerCase().includes(query) ||
+          p.category.toLowerCase().includes(query),
       );
     }
 
-    // Фильтр по категории
     if (filters.category !== "All") {
       result = result.filter((p) => p.category === filters.category);
     }
 
-    // Фильтр по складу
     if (filters.warehouse !== "All") {
       result = result.filter(
         (p) => p.location?.warehouseName === filters.warehouse,
       );
     }
 
-    // Фильтр по цене
     if (filters.minPrice !== "") {
       result = result.filter((p) => p.price >= Number(filters.minPrice));
     }
@@ -120,7 +117,6 @@ function Catalog({ user }) {
       result = result.filter((p) => p.price <= Number(filters.maxPrice));
     }
 
-    // Сортировка
     if (filters.sortBy === "nameAsc") {
       result.sort((a, b) => a.name.localeCompare(b.name));
     } else if (filters.sortBy === "nameDesc") {
@@ -150,11 +146,13 @@ function Catalog({ user }) {
       <div className="catalog-header">
         <h1>ProductsCatalog</h1>
         <p>Find and track your favorite products.</p>
-        <SearchBar 
-            searchQuery={filters.searchQuery}
-            onSearchChange={(value) => setFilters(prev => ({ ...prev, searchQuery: value }))}
-            onClear={() => setFilters(prev => ({ ...prev, searchQuery: "" }))}
-          />
+        <SearchBar
+          searchQuery={filters.searchQuery}
+          onSearchChange={(value) =>
+            setFilters((prev) => ({ ...prev, searchQuery: value }))
+          }
+          onClear={() => setFilters((prev) => ({ ...prev, searchQuery: "" }))}
+        />
       </div>
 
       <div
@@ -162,7 +160,7 @@ function Catalog({ user }) {
         style={{
           display: "flex",
           gap: "30px",
-          width: "100%"
+          width: "100%",
         }}
       >
         <Sidebar
