@@ -1,7 +1,8 @@
+// Imports
 import "../styles/sidebarStyles.css";
 
+//Component
 function Sidebar({ filters, setFilters, categories, warehouses }) {
-  // Обработчик для изменения любого поля
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFilters((prev) => ({
@@ -14,11 +15,14 @@ function Sidebar({ filters, setFilters, categories, warehouses }) {
     <aside className="sidebar">
       <h3>Filters</h3>
 
-      {/* 1. Сортировка */}
       <div className="filter-group">
-        {/* Связываем label и select через htmlFor и id */}
         <label htmlFor="sortBy">Sort By</label>
-        <select id="sortBy" name="sortBy" value={filters.sortBy} onChange={handleChange}>
+        <select
+          id="sortBy"
+          name="sortBy"
+          value={filters.sortBy}
+          onChange={handleChange}
+        >
           <option value="default">Newest First</option>
           <option value="nameAsc">Name (A-Z)</option>
           <option value="nameDesc">Name (Z-A)</option>
@@ -27,10 +31,14 @@ function Sidebar({ filters, setFilters, categories, warehouses }) {
         </select>
       </div>
 
-      {/* 2. Категория */}
       <div className="filter-group">
         <label htmlFor="category">Category</label>
-        <select id="category" name="category" value={filters.category} onChange={handleChange}>
+        <select
+          id="category"
+          name="category"
+          value={filters.category}
+          onChange={handleChange}
+        >
           <option value="All">All Categories</option>
           {categories.map((cat) => (
             <option key={cat} value={cat}>
@@ -40,10 +48,14 @@ function Sidebar({ filters, setFilters, categories, warehouses }) {
         </select>
       </div>
 
-      {/* 3. Склад */}
       <div className="filter-group">
         <label htmlFor="warehouse">Warehouse</label>
-        <select id="warehouse" name="warehouse" value={filters.warehouse} onChange={handleChange}>
+        <select
+          id="warehouse"
+          name="warehouse"
+          value={filters.warehouse}
+          onChange={handleChange}
+        >
           <option value="All">All Warehouses</option>
           {warehouses.map((wh) => (
             <option key={wh} value={wh}>
@@ -53,9 +65,7 @@ function Sidebar({ filters, setFilters, categories, warehouses }) {
         </select>
       </div>
 
-      {/* 4. Цена */}
       <div className="filter-group price-filter">
-        {/* Привязываем главный label к минимальной цене */}
         <label htmlFor="minPrice">Price Range ($)</label>
         <div className="price-inputs">
           <input
@@ -76,23 +86,22 @@ function Sidebar({ filters, setFilters, categories, warehouses }) {
             onChange={handleChange}
             placeholder="Max"
             min="0"
-            /* Добавляем aria-label для второго инпута, 
-               чтобы линтер не ругался на отсутствие label для него */
             aria-label="Maximum Price"
           />
         </div>
       </div>
-      
-      {/* Кнопка сброса */}
-      <button 
+
+      <button
         className="reset-btn"
-        onClick={() => setFilters({
-          sortBy: "default",
-          category: "All",
-          warehouse: "All",
-          minPrice: "",
-          maxPrice: ""
-        })}
+        onClick={() =>
+          setFilters({
+            sortBy: "default",
+            category: "All",
+            warehouse: "All",
+            minPrice: "",
+            maxPrice: "",
+          })
+        }
       >
         Reset Filters
       </button>

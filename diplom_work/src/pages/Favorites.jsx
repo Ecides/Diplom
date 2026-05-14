@@ -14,7 +14,9 @@ function Favorites({ user }) {
   const [favIds, setFavIds] = useState([]);
 
   const handleRemoveFavorite = (productId) => {
-    setFavoriteProducts((prevProducts) => prevProducts.filter((p) => p.id !== productId));
+    setFavoriteProducts((prevProducts) =>
+      prevProducts.filter((p) => p.id !== productId),
+    );
     setFavIds((prevIds) => prevIds.filter((id) => id !== productId));
   };
 
@@ -32,7 +34,7 @@ function Favorites({ user }) {
         if (userSnap.exists()) {
           const userData = userSnap.data();
           const favoriteIds = userData.favorites || [];
-          
+
           setFavIds(favoriteIds);
 
           if (favoriteIds.length === 0) {
@@ -41,10 +43,10 @@ function Favorites({ user }) {
             return;
           }
 
-          const productPromises = favoriteIds.map((id) => 
-            getDoc(doc(db, "products", id))
+          const productPromises = favoriteIds.map((id) =>
+            getDoc(doc(db, "products", id)),
           );
-          
+
           const productDocs = await Promise.all(productPromises);
 
           const loadedProducts = productDocs
@@ -68,7 +70,10 @@ function Favorites({ user }) {
 
   if (loading) {
     return (
-      <div className="catalog-container" style={{ justifyContent: "center", minHeight: "60vh" }}>
+      <div
+        className="catalog-container"
+        style={{ justifyContent: "center", minHeight: "60vh" }}
+      >
         <h2>Loading favorites...</h2>
       </div>
     );
@@ -76,7 +81,10 @@ function Favorites({ user }) {
 
   if (!user) {
     return (
-      <div className="catalog-container" style={{ justifyContent: "center", minHeight: "60vh" }}>
+      <div
+        className="catalog-container"
+        style={{ justifyContent: "center", minHeight: "60vh" }}
+      >
         <h2>Please sign in to see your favorites.</h2>
       </div>
     );
@@ -90,16 +98,23 @@ function Favorites({ user }) {
       </div>
 
       {favoriteProducts.length === 0 ? (
-        <p style={{ textAlign: "center", color: "#aaa", fontSize: "1.2rem", marginTop: "40px" }}>
+        <p
+          style={{
+            textAlign: "center",
+            color: "#aaa",
+            fontSize: "1.2rem",
+            marginTop: "40px",
+          }}
+        >
           You haven't added any products to favorites yet
         </p>
       ) : (
         <div className="products-grid">
           {favoriteProducts.map((product) => (
-            <ProductCard 
-              key={product.id} 
-              product={product} 
-              user={user} 
+            <ProductCard
+              key={product.id}
+              product={product}
+              user={user}
               userFavorites={favIds}
               onRemove={handleRemoveFavorite}
             />
