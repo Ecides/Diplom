@@ -175,7 +175,7 @@ function AuthModule({ user, closeMenu }) {
               className="toggle-password-btn"
               onClick={() => setShowPassword(!showPassword)}
             >
-              {showPassword ? <img style={{width: "24px", height: "24px"}} src={eyeclose} alt="Hide password" /> : <img style={{width: "24px", height: "24px"}} src={eyeopen} alt="Show password" />}
+              {showPassword ? <img style={{width: "20px", height: "20px"}} src={eyeclose} alt="Hide password" /> : <img style={{width: "20px", height: "20px"}} src={eyeopen} alt="Show password" />}
             </button>
           </div>
 
