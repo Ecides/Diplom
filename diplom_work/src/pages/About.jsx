@@ -12,7 +12,6 @@ function About() {
         </p>
       </section>
 
-      {/* Основной контент */}
       <div className="about-content">
         
         <div className="about-card">
